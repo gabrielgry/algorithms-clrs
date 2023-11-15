@@ -10,17 +10,17 @@ void printArray(int arr[], size_t n) {
 
 void merge(int arr[], unsigned int start, unsigned int middle, unsigned int end) {
 	
-	unsigned int lenghtLeft = (middle + 1) - start;
-	unsigned int lenghtRight = end - middle;
+	unsigned int leftLength = (middle + 1) - start;
+	unsigned int rightLength = end - middle;
 	
-	int left[lenghtLeft];
-	int right[lenghtRight];
+	int left[leftLength];
+	int right[rightLength];
 
-	for (unsigned int i = 0; i < lenghtLeft; i++) {
+	for (unsigned int i = 0; i < leftLength; i++) {
 		left[i] = arr[start + i];
 	}
 
-	for (unsigned int i = 0; i < lenghtRight; i++) {
+	for (unsigned int i = 0; i < rightLength; i++) {
 		right[i] = arr[middle + 1 + i];
 	}
 
@@ -28,7 +28,7 @@ void merge(int arr[], unsigned int start, unsigned int middle, unsigned int end)
 	unsigned int rightIndex = 0;
 	unsigned int mainIndex = 0;
 
-	while (leftIndex < lenghtLeft && rightIndex < lenghtRight) {
+	while (leftIndex < leftLength && rightIndex < rightLength) {
 		if (left[leftIndex] < right[rightIndex]) {
 			arr[start + mainIndex] = left[leftIndex];
 			leftIndex++;
@@ -40,12 +40,12 @@ void merge(int arr[], unsigned int start, unsigned int middle, unsigned int end)
 		mainIndex++;
 	}
 
-	for (leftIndex; leftIndex < lenghtLeft; leftIndex++) {
+	for (leftIndex; leftIndex < leftLength; leftIndex++) {
 		arr[start + mainIndex] = left[leftIndex];
 		mainIndex++;
 	} 
 
-	for (rightIndex; rightIndex < lenghtRight; rightIndex++) {
+	for (rightIndex; rightIndex < rightLength; rightIndex++) {
 		arr[start + mainIndex] = right[rightIndex];
 		mainIndex++;
 	}
