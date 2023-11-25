@@ -22,13 +22,13 @@ int main()
 	int size = 10;
 	int array[size];
 
-	fill_array_with_shuffled_int(array, size);
+	array_fill_with_shuffled(array, size);
 
-	print_int_array(array, size);
+	array_print_int(array, size);
 
 	insertion_sort(array, size);
 
-	print_int_array(array, size);
+	array_print_int(array, size);
 
 	return 0;
 }
