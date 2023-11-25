@@ -34,5 +34,26 @@ void array_fill_with_shuffled(int array[], int size)
 	}	
 }
 
+bool array_check_asc_order(int array[], int size) {
+	for (int index = 1; index < size; index++) {
+		if (array[index - 1] > array[index]) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+bool array_check_desc_order(int array[], int size) {
+	for (int index = 1; index < size; index++) {
+		if (array[index - 1] < array[index]) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+
 
 
