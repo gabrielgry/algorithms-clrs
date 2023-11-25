@@ -1,3 +1,5 @@
+#include<stdbool.h>
+
 #ifndef ARRAY_HELPERS_H
 #define ARRAY_HELPERS_H
 
