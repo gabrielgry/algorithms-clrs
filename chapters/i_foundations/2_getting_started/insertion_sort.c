@@ -1,5 +1,7 @@
 #include <stdio.h>
+#include <stdbool.h>
 #include "array.h"
+#include "test.h"
 
 void insertion_sort(int array[], int size)
 {
@@ -24,11 +26,11 @@ int main()
 
 	array_fill_with_shuffled(array, size);
 
-	array_print_int(array, size);
-
 	insertion_sort(array, size);
 
-	array_print_int(array, size);
+	bool is_ordered = array_check_asc_order(array, size);
+
+	test_print_result(is_ordered, "The array is in ascendent order.");
 
 	return 0;
 }
