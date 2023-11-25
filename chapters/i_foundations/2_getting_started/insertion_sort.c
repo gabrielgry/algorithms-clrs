@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include "array.h"
 
-void insertion_sort(int array[], int length)
+void insertion_sort(int array[], int size)
 {
-	for (int unsorted_index = 1; unsorted_index < length; ++unsorted_index) {
+	for (int unsorted_index = 1; unsorted_index < size; ++unsorted_index) {
 		int unsorted_value = array[unsorted_index];
 		
 		int sorted_index = unsorted_index - 1;
@@ -19,16 +19,16 @@ void insertion_sort(int array[], int length)
 
 int main()
 {
-	int length = 10;
-	int array[length];
+	int size = 10;
+	int array[size];
 
-	fill_array_with_shuffled_int(array, length);
+	fill_array_with_shuffled_int(array, size);
 
-	print_int_array(array, length);
+	print_int_array(array, size);
 
-	insertion_sort(array, length);
+	insertion_sort(array, size);
 
-	print_int_array(array, length);
+	print_int_array(array, size);
 
 	return 0;
 }
