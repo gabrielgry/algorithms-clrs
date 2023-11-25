@@ -26,8 +26,7 @@ void fill_array_with_shuffled_int(int array[], int size)
 
 	for (int index = 0; index < size; index++) {
 		int randomIndex = rand() % size;
-		printf("\nrandomIndex: %d\n", randomIndex);
-
+		
 		int tmp = array[index];
 		array[index] = array[randomIndex];
 		array[randomIndex] = tmp;
