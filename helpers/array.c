@@ -53,6 +53,17 @@ bool array_check_desc_order(int array[], int size) {
 	return true;
 }
 
+bool array_check_if_equal(int a[], int b[], int size)
+{
+	for (int i = 0; i < size; i++) {
+		if (a[i] != b[i]) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
 
 
 
