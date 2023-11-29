@@ -1,31 +1,25 @@
 #include <stdio.h>
+#include "test.h"
 
-int horner(int a[], size_t length, int x) {
+int horner(int coefficients[], int size, int x)
+{
 	int p = 0;	
 
-	for (int i = length - 1; i >= 0; i--) {
-		p = a[i] + (x * p);
+	for (int i = size - 1; i >= 0; i--) {
+		p = coefficients[i] + (x * p);
 	}
 	
 	return p;
 }
 
-void print_array(int arr[], size_t n) {
-	for (unsigned int i = 0; i < n; i++) {
-		printf("%d ", arr[i]);	
-	}
-	printf("\n");
-}
+int main()
+{
+	int coefficients[3] = {1, 2, 3};
+	int size = sizeof(coefficients)/sizeof(coefficients[0]);
 
-int main() {
-	int arr[2] = {1, 2};
-	size_t n = sizeof(arr)/sizeof(arr[0]);
+	int result = horner(coefficients, size, 5);
 
-	print_array(arr, n);
-
-	int result = horner(arr, n, 5);
-
-	printf("%d\n", result);
+	test_print_result(result == 86, "The solution of the polynomial function is correct.");
 	
 	return 0;
 }
