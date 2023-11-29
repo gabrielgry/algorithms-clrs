@@ -1,53 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include "array.h"
+#include "test.h"
 
-void bubble_sort(int arr[], size_t length) {
-	if (length <= 1) {
+void bubble_sort(int array[], int size)
+{
+	if (size <= 1) {
 		return;
 	}
 
-	for (unsigned int i = 0; i < length - 1; i++) {
-		for (unsigned int j = length - 1; j > i; j--) {
-			if (arr[j] < arr[j - 1]) {
-				int tmp = arr[j];
-				arr[j] = arr[j - 1];
-				arr[j - 1] = tmp;
+	for (int sorted_index = 0; sorted_index < size - 1; sorted_index++) {
+		for (int comparison_index = size - 1; comparison_index > sorted_index; comparison_index--) {
+			if (array[comparison_index] < array[comparison_index - 1]) {
+				int smaller_value = array[comparison_index];
+				array[comparison_index] = array[comparison_index - 1];
+				array[comparison_index - 1] = smaller_value;
 			}
 		}
 	}	
 }
 
-void fill_array(int arr[], size_t length) {
-	for (unsigned int i = 0; i < length; i++) {
-		arr[i] = (length - 1) - i;
-	}
-}
+int main()
+{
+	int size = 10;
+	int array[size];
 
-void print_array(int arr[], size_t length) {
-	for (unsigned int i = 0; i < length; i++) {
-		printf("%d ", arr[i]);
-	}
-	printf("\n");
-}
+	array_fill_with_shuffled(array, size);
 
-int main() {
-	size_t length = 10;
+	bubble_sort(array, size);
 
-	int *arr = malloc(sizeof(int) * length);
+	bool is_ordered = array_check_asc_order(array, size);
 
-	if (arr == NULL) {
-		printf("Memory allocation failed\n");
-		return 1;
-	}
-
-	fill_array(arr, length);
-	print_array(arr, length);
-
-	bubble_sort(arr, length);
-
-	print_array(arr, length);
-
-	free(arr);
+	test_print_result(is_ordered, "The array is in ascendent order.");
 
 	return 0;
 }
